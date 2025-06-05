@@ -1,8 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const {default: mongoose} = require('mongoose');
 const BooksRoute = require('./routes/BooksRoute')
 const AuthorRoute = require('./routes/AuthorRoute')
+const UserRoute = require('./routes/UserRoute');
 
 
 // defining server
@@ -14,8 +16,9 @@ const PORT = 5002;
 
 
 // routes
-server.use(BooksRoute)
-server.use(AuthorRoute)
+server.use(BooksRoute);
+server.use(AuthorRoute);
+server.use(UserRoute);
 
 
 // connecting server to mongoose
