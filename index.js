@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const {default: mongoose} = require('mongoose');
 const BooksRoute = require('./routes/BooksRoute')
+const AuthorRoute = require('./routes/AuthorRoute')
 
 
 // defining server
@@ -14,11 +15,12 @@ const PORT = 5002;
 
 // routes
 server.use(BooksRoute)
+server.use(AuthorRoute)
 
 
 // connecting server to mongoose
 mongoose.connect(
-    "mongodb+srv://adjoaakoranteng:sBxd8adGPhLV7PEH@cluster0.vkp9e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    "mongodb+srv://adjoaakoranteng:MI0q7K2c6txag4X1@cluster0.vkp9e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     ).then((result) =>{
     server.listen(PORT, () => console.log(`Server is running on ${PORT}`))
 })
